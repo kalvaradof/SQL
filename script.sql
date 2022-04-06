@@ -30,22 +30,25 @@ INSERT INTO post (id, nombre_usuario, fecha_creacion, contenido, descripcion, ti
 
 Parte 2
 -- Crear una nueva tabla llamada “comentarios”, con los atributos id, fecha, hora de creación y contenido, que se relacione con la tabla posts.
-CREATE TABLE Comentarios (id INT, nombre_usuario VARCHAR(50), fecha_creacion DATE, hora_creacion TIME, contenido VARCHAR(50), descripcion VARCHAR(300) FOREIGN KEY(id) REFERENCES post (id))
+CREATE TABLE Comentarios (id INT, post_id INT, nombre_usuario VARCHAR(50), fecha_creacion DATE, hora_creacion TIME, contenido VARCHAR(50), descripcion VARCHAR(300) FOREIGN KEY(post_id) REFERENCES post(id))
 
 -- Crear 2 comentarios para el post de "Pamela" y 4 para "Carlos".
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (1, '2022-02-13', '12:30:50', 'ejemplo comentario 1');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (2, '2022-02-13', '22:35:54', 'ejemplo comentario 2');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (6, '2022-02-13', '23:02:08', 'ejemplo comentario 1');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (6, '2022-02-13', '21:20:05', 'ejemplo comentario 2');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (6, '2022-02-13', '14:15:13','ejemplo comentario 3');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (6, '2022-02-13', '05:09:18', 'ejemplo comentario 4');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (1, 1, '2022-02-13', '12:30:50', 'ejemplo comentario 1');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (2, 2, '2022-02-13', '22:35:54', 'ejemplo comentario 2');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (3, 6, '2022-02-13', '23:02:08', 'ejemplo comentario 1');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (4, 6, '2022-02-13', '21:20:05', 'ejemplo comentario 2');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (5, 6, '2022-02-13', '14:15:13','ejemplo comentario 3');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (6, 6, '2022-02-13', '05:09:18', 'ejemplo comentario 4');
 
 -- Crear un nuevo post para "Margarita".
-INSERT INTO post(id, nombre_usuario, fecha_creacion, contenido, descripcion, titulo) VALUES (7, 'Margarita', '1995-02-28', 'Ejemplo de contenido Margarita', 'Ejemplo de descripcion Margarita', 'Titulo Margarita');
+INSERT INTO post(id, post_id, nombre_usuario, fecha_creacion, contenido, descripcion, titulo) VALUES (7, 'Margarita', '1995-02-28', 'Ejemplo de contenido Margarita', 'Ejemplo de descripcion Margarita', 'Titulo Margarita');
 
 -- Ingresar 5 comentarios para el post de Margarita.
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (7, '2023-05-13', '07:09:19','ejemplo comentario 1');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (7, '2020-06-24', '03:06:28', 'ejemplo comentario 2');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (7, '2018-07-31', '20:59:17', 'ejemplo comentario 3');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (7, '2017-10-23', '16:45:18', 'ejemplo comentario 4');
-INSERT INTO comentarios (id, nombre_usuario, fecha_creacion, contenido) VALUES (7, '2015-12-30', '08:28:38', 'ejemplo comentario 5');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (7, 7, '2023-05-13', '07:09:19','ejemplo comentario 1');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (8, 7, '2020-06-24', '03:06:28', 'ejemplo comentario 2');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (9, 7, '2018-07-31', '20:59:17', 'ejemplo comentario 3');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (10, 7, '2017-10-23', '16:45:18', 'ejemplo comentario 4');
+INSERT INTO comentarios (id, post_id, nombre_usuario, fecha_creacion, contenido) VALUES (11, 7, '2015-12-30', '08:28:38', 'ejemplo comentario 5');
+
+-- mostrar tabla
+\dt;
